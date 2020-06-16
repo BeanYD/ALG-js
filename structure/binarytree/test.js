@@ -21,7 +21,7 @@ function TreeCode() {
         biTree.right.left = new BiTree('E');
         biTree.right.right = new BiTree('F');
         biTree.right.left.right = new BiTree('I');
-        // biTree.left.left.right.right = new BiTree('J');
+        biTree.right.right.right = new BiTree('J');
         return biTree;
     }
 }
@@ -30,6 +30,7 @@ let myTree = new TreeCode();
 
 // 二叉树深度
 var maxDepth = function(root) {
+    if (root == null) return 0;
     let deep = 0;
     let maxDepth = 0;
     let stack = [];
@@ -42,11 +43,14 @@ var maxDepth = function(root) {
         let node = stack.pop();
         root = node.right;
 
+        maxDepth = maxDepth > deep ? maxDepth : deep;
+
+        console.log(deep);
         if (root == null) {
+            console.log("-1");
             deep--;
         }
 
-        maxDepth = maxDepth > deep ? maxDepth : deep;
     }
 
     return maxDepth;
