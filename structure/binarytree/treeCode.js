@@ -1,7 +1,7 @@
 /*
  * @Author: Bean.Ding
  * @Date: 2020-06-16 09:46:54
- * @LastEditTime: 2020-06-16 15:10:48
+ * @LastEditTime: 2020-06-17 18:54:06
  * @LastEditors: Bean.Ding
  */ 
 function TreeCode() {  
@@ -141,7 +141,7 @@ function PostOrderTraverse1(biTree) {
     if (biTree == null) return null;
     let stack = [];
     let result = [];
-    let lastVisit = stack[stack.length - 1];
+    let lastVisit = null;
     while (stack.length > 0 ||  biTree != null) {
         while (biTree != null) {
             stack.push(biTree);
